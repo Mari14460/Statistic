@@ -9,7 +9,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 180")
     void testSum(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.sum(sales);
 
@@ -20,7 +20,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 15")
     void testAverage(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.average(sales);
 
@@ -31,7 +31,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 6")
     void testMaxSales(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.maxSales(sales);
 
@@ -42,7 +42,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 9")
     void testMinSales(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.minSales(sales);
 
@@ -53,7 +53,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5")
     void testNumberOfMonthsLessThanAverage(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.numberOfMonthsLessThanAverage(sales);
 
@@ -64,7 +64,7 @@ public class StatsServiceTest {
     @ParameterizedTest
     @CsvSource("'8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18', 5")
     void testNumberOfMonthsMoreThanAverage(String column1, long expected) {
-        long sales[] = convertStringToArray(column1);
+        long[] sales = convertStringToArray(column1);
         StatsService statsService = new StatsService();
         long actual = statsService.numberOfMonthsMoreThanAverage(sales);
 
@@ -76,8 +76,8 @@ public class StatsServiceTest {
     // ------------------------------------------------------
     // Взяла эту часть из интернет
     public long[] convertStringToArray(String str) {
-        String strArray[] = str.split(",");
-        long sales[] = new long[strArray.length];
+        String[] strArray = str.split(",");
+        long[] sales = new long[strArray.length];
         for (int i = 0; i < strArray.length; i++) {
             sales[i] = Long.parseLong(strArray[i].trim());
         }
